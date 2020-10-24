@@ -1,41 +1,56 @@
-const bt9 = document.getElementsByClassName("num-bt").item(0)
-addEventListener("click", function() {
-    const bt = document.getElementsByClassName("num-bt").item(0)
-    document.getElementById("screen-contnt").innerHTML = bt.getAttribute("data-num");
-  });
 //get nums from user 
 //display the clickt num 
-const inOperator = '+';
-const inFirstNum = 4 ;
-const inSecndNum = 5 ;
-const submit = document.getElementById('anser');  
-submit.addEventListener('click', operate());
 
-// function (inOperator , inFirstNum ,inSecndNum)
-// {
-//   console.log(operate(inOperator , inFirstNum ,inSecndNum));
-//   console.log("good")
-// }
+// after the user clicks an opresn then save the num to inFirstNum and the clickt Operator in inOperator
+//
+const Operator = document.querySelectorAll('.operator')
+const Nums = document.querySelectorAll('.num-bt')
+let Secnd = false
+Nums.forEach(bt => bt.addEventListener('click', function() {
+    if (Secnd == false) {
+        document.querySelector('#screen-contnt').textContent += bt.textContent;
+        inFirstNum[0] = document.querySelector('#screen-contnt').textContent;
+    } else {
+        document.querySelector('#screen-contnt').textContent += bt.textContent;
+        inSecndNum[0] = document.querySelector('#screen-contnt').textContent;
+    }
+}))
 
-function operate (operator , numberFirst , numberSecnd){
-  
-    if(operator == '+') {
-      // function (numberFirst, numberSecnd)
-        return numberFirst + numberSecnd ; 
+Operator.forEach(bt => bt.addEventListener('click', function() {
+    document.querySelector('#screen-contnt').textContent = '';
+    inOperator[0] = bt.textContent
+    Secnd = true;
+
+}))
+console.log(document.querySelector('#screen-contnt').textContent);
+const inOperator = [];
+const inFirstNum = [];
+const inSecndNum = [];
+const submit = document.getElementById('anser');
+submit.addEventListener('click', function() {
+    //save screen content to inSecndNum
+    console.log(operate(inOperator[0], inFirstNum[0], inSecndNum[0]));
+
+});
+
+function operate(operator, numberFirst, numberSecnd) {
+
+    if (operator == '+') {
+        // function (numberFirst, numberSecnd)
+        return numberFirst + numberSecnd;
     };
-    if(operator == '-') {
-      // function (numberFirst, numberSecnd)
-        return numberFirst - numberSecnd ;
+    if (operator == '-') {
+        // function (numberFirst, numberSecnd)
+        return numberFirst - numberSecnd;
     };
-    if(operator == '*') {
-      // function (numberFirst, numberSecnd)
-        return numberFirst * numberSecnd ;
+    if (operator == '*') {
+        // function (numberFirst, numberSecnd)
+        return numberFirst * numberSecnd;
     };
-    if(operator == '/') {
-      // function (numberFirst, numberSecnd)
-        return numberFirst / numberSecnd ;
+    if (operator == '/') {
+        // function (numberFirst, numberSecnd)
+        return numberFirst / numberSecnd;
     };
-    console.log('gg')
-    // return (numberFirst) (operator) (numberSecnd); 
+    console.log('clickt ?')
+        // return (numberFirst) (operator) (numberSecnd); 
 }
-//console.log(operate('-', 20 ,3))
