@@ -1,59 +1,59 @@
-body{
+body {
     color: white;
     padding: 0;
     margin: 0;
-
 }
-main{
+
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px 212.5px;
 }
-.calc-contein{
-    
+
+.calc-contein {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #303234;
 }
-.screen{
+
+.screen {
     width: 380px;
     height: 120px;
 }
-.buttons{
-    
-    display: flex;
 
+.buttons {
+    display: flex;
 }
-button{
+
+button {
     background: #303234;
     color: white;
     border: none;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-    transition: box-shadow  400ms;
+    transition: box-shadow 400ms;
 }
-.numbers-bt{
-    
+
+.numbers-bt {
     display: grid;
-    grid-template-rows:repeat(4,auto);
-    grid-template-columns: repeat(3,auto);
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: repeat(3, auto);
 }
-.num-bt{
+
+.num-bt {
     width: 100px;
     height: 100px;
-   
-    
 }
-.math-operators{
+
+.math-operators {
     display: grid;
-    grid-template-rows:repeat(5,auto);
-    grid-template-columns: repeat(1,auto);
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(1, auto);
 }
-.operator{
+
+.operator {
     width: 80px;
     height: 66.67px;
-   
-   
 }
