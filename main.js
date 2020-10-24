@@ -1,13 +1,20 @@
-//get nums from user 
 //display the clickt num 
-
-// after the user clicks an opresn then save the num to inFirstNum and the clickt Operator in inOperator
-//
-const Operator = document.querySelectorAll('.operator')
-const Nums = document.querySelectorAll('.num-bt')
 let Secnd = false
+const inOperator = [];
+const inFirstNum = [];
+const inSecndNum = [];
+inOperator[0] = '';
+inFirstNum[0] = '';
+inSecndNum[0] = '';
+const Operator = document.querySelectorAll('.operator')
+    //get nums from user 
+const Nums = document.querySelectorAll('.num-bt')
+const screen = document.querySelector('#screen-contnt')
+    // after the user clicks an opresn then save the num to inFirstNum and the clickt Operator in inOperator
+
 Nums.forEach(bt => bt.addEventListener('click', function() {
-    if (Secnd == false) {
+
+    if (Secnd === false) {
         document.querySelector('#screen-contnt').textContent += bt.textContent;
         inFirstNum[0] = document.querySelector('#screen-contnt').textContent;
     } else {
@@ -16,41 +23,56 @@ Nums.forEach(bt => bt.addEventListener('click', function() {
     }
 }))
 
-Operator.forEach(bt => bt.addEventListener('click', function() {
-    document.querySelector('#screen-contnt').textContent = '';
-    inOperator[0] = bt.textContent
-    Secnd = true;
+Operator.forEach(op => op.addEventListener('click', function() {
+        document.querySelector('#screen-contnt').textContent = '';
+        console.log(op.textContent)
+        inOperator[0] = op.textContent
+        Secnd = true;
 
-}))
-console.log(document.querySelector('#screen-contnt').textContent);
-const inOperator = [];
-const inFirstNum = [];
-const inSecndNum = [];
+    }))
+    // console.log(document.querySelector('#screen-contnt').textContent);
+
 const submit = document.getElementById('anser');
 submit.addEventListener('click', function() {
     //save screen content to inSecndNum
-    console.log(operate(inOperator[0], inFirstNum[0], inSecndNum[0]));
+    operate(inOperator, inFirstNum, inSecndNum);
 
 });
 
 function operate(operator, numberFirst, numberSecnd) {
 
-    if (operator == '+') {
+    if (operator[0] == '+') {
         // function (numberFirst, numberSecnd)
-        return numberFirst + numberSecnd;
+        console.log('clickt +')
+        let result = parseFloat(numberFirst[0]) + parseFloat(numberSecnd[0]);
+        document.querySelector('#screen-contnt').textContent = result;
+
     };
-    if (operator == '-') {
+    if (operator[0] == '-') {
         // function (numberFirst, numberSecnd)
-        return numberFirst - numberSecnd;
+        let result = parseFloat(numberFirst[0]) - parseFloat(numberSecnd[0]);
+        document.querySelector('#screen-contnt').textContent = result;
     };
-    if (operator == '*') {
+    if (operator[0] == '*') {
         // function (numberFirst, numberSecnd)
-        return numberFirst * numberSecnd;
+        let result = parseFloat(numberFirst[0]) * parseFloat(numberSecnd[0]);
+        document.querySelector('#screen-contnt').textContent = result;
     };
-    if (operator == '/') {
+    if (operator[0] == '/') {
         // function (numberFirst, numberSecnd)
-        return numberFirst / numberSecnd;
+        let result = parseFloat(numberFirst[0]) / parseFloat(numberSecnd[0]);
+        document.querySelector('#screen-contnt').textContent = result;
     };
-    console.log('clickt ?')
-        // return (numberFirst) (operator) (numberSecnd); 
+
+    // return (numberFirst) (operator) (numberSecnd); 
+}
+//delet bt 
+document.querySelector("#reset").addEventListener('click', delet);
+
+function delet() {
+    Secnd = false
+    inOperator[0] = '';
+    inFirstNum[0] = '';
+    inSecndNum[0] = '';
+    document.querySelector('#screen-contnt').textContent = '';
 }
